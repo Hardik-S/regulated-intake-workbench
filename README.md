@@ -54,11 +54,21 @@ npm run dev
 Current quality-pass evidence:
 
 - `npm ci` completed with 2 moderate advisories; no forced audit fix was applied because it would allow breaking dependency changes.
-- `npm run test`, `npm run typecheck`, and `npm run build` are the expected pre-push checks for this fixer branch.
+- `npm run verify` passed on 2026-05-10 from the fixer worktree: 1 Vitest file / 5 tests, TypeScript check, and `next build --webpack`.
+- Source-only redaction scans passed for `src`, `docs`, and `README.md`. The full worktree scan only flags the linked-worktree `.git` pointer local path.
+- Local webpack dev smoke returned HTTP 200 and contained `Regulated Intake Workbench`, `Reviewer packet preview`, `case-1062`, and `QA sign-off`.
+- `npm audit --omit=dev --audit-level=moderate` reports a moderate transitive `postcss` advisory through `next@16.2.6`; the available force fix would install a breaking old Next version, so it was not applied in this focused pass.
 
 ## Deployment
 
 Expected deployment target: Vercel production for a public synthetic-data demo.
+
+Current production deployment:
+
+- Alias: https://regulated-intake-workbench.vercel.app
+- Deployment: https://regulated-intake-workbench-poiqm2mt9-batb4016-9101s-projects.vercel.app
+- Vercel deployment id: `dpl_7HhBd6ixG3BLuAA46nPCsYHUSqAv`
+- Production HTTP smoke on 2026-05-10 returned `200` and contained `Reviewer packet preview`, `case-1062`, `QA sign-off`, and `No auto-submit boundary`.
 
 ## Fixture Boundary
 
