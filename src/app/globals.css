@@ -7,6 +7,7 @@
   --accent: #0f766e;
   --review: #a15c07;
   --danger: #a33a33;
+  --blue: #265a88;
   --shadow: 0 18px 60px rgba(40, 50, 44, 0.1);
 }
 
@@ -51,11 +52,31 @@ h1 {
   line-height: 1.6;
 }
 
+.heroMetrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.heroMetrics strong,
+.caseMeta em {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--ink);
+  font-size: 13px;
+  font-style: normal;
+  padding: 8px 11px;
+}
+
 .hero aside,
 .caseCard,
 .sourcePanel,
 .reviewPanel,
-.flags {
+.flags,
+.workflow,
+.packetPanel {
   border: 1px solid var(--line);
   background: var(--panel);
   box-shadow: var(--shadow);
@@ -79,7 +100,7 @@ h1 {
 
 .caseGrid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
   margin: 18px 0 26px;
 }
@@ -109,13 +130,51 @@ td span {
 }
 
 .caseCard p,
-.sourcePanel p {
+.sourcePanel p,
+.workflow p {
   margin: 0;
   color: var(--muted);
   line-height: 1.55;
 }
 
+.caseMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.workflow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 18px;
+  border-radius: 8px;
+}
+
+.workflow div {
+  display: grid;
+  gap: 8px;
+}
+
+.workflow span {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 999px;
+  background: #e7f2ef;
+  color: var(--accent);
+  font-weight: 800;
+}
+
 .workspace {
+  display: grid;
+  gap: 16px;
+}
+
+.caseWorkspace {
   display: grid;
   grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
   gap: 16px;
@@ -124,13 +183,15 @@ td span {
 
 .sourcePanel,
 .reviewPanel,
-.flags {
+.flags,
+.packetPanel {
   border-radius: 8px;
   padding: 20px;
 }
 
 .trustedPanel,
-.flags {
+.flags,
+.packetPanel {
   grid-column: span 1;
 }
 
@@ -154,7 +215,7 @@ td span {
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 620px;
+  min-width: 820px;
 }
 
 th {
@@ -200,6 +261,12 @@ mark.rejected {
   color: var(--danger);
 }
 
+td:nth-child(4) {
+  color: var(--blue);
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
 .flags ul {
   margin: 0;
   padding-left: 20px;
@@ -211,6 +278,23 @@ mark.rejected {
   line-height: 1.5;
 }
 
+.packetPanel {
+  grid-column: 1 / -1;
+}
+
+pre {
+  margin: 0;
+  max-height: 360px;
+  overflow: auto;
+  border-radius: 8px;
+  background: #18201d;
+  color: #eef7f3;
+  font-size: 13px;
+  line-height: 1.6;
+  padding: 18px;
+  white-space: pre-wrap;
+}
+
 @media (max-width: 860px) {
   main {
     width: min(100% - 24px, 680px);
@@ -219,7 +303,8 @@ mark.rejected {
 
   .hero,
   .caseGrid,
-  .workspace {
+  .workflow,
+  .caseWorkspace {
     grid-template-columns: 1fr;
   }
 

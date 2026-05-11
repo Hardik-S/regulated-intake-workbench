@@ -4,5 +4,3 @@ out/
 .vercel/
 *.log
 .env*
-
-.vercel

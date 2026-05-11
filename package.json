@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": false,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "test": "vitest run"
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit --incremental false",
+    "verify": "npm run test && npm run typecheck && npm run build"
   },
   "dependencies": {
     "next": "16.2.6",
