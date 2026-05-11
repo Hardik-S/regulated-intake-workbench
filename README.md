@@ -66,8 +66,8 @@ Expected deployment target: Vercel production for a public synthetic-data demo.
 Current production deployment:
 
 - Alias: https://regulated-intake-workbench.vercel.app
-- Deployment: https://regulated-intake-workbench-poiqm2mt9-batb4016-9101s-projects.vercel.app
-- Vercel deployment id: `dpl_7HhBd6ixG3BLuAA46nPCsYHUSqAv`
+- Deployment: https://regulated-intake-workbench-owtpkmrmo-batb4016-9101s-projects.vercel.app
+- Vercel deployment id: `dpl_E2MHXQy9pirbivK6BLZSoBNqL8Ta`
 - Production HTTP smoke on 2026-05-10 returned `200` and contained `Reviewer packet preview`, `case-1062`, `QA sign-off`, and `No auto-submit boundary`.
 
 ## Fixture Boundary
